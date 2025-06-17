@@ -1,0 +1,67 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+target/
+
+# VS Code (如果你也用过)
+.vscode/
+
+# Maven
+/logs/
+*.log
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Eclipse (如果切 IDE)
+.classpath
+.project
+.settings/
+bin/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Java class files
+*.class
+
+# Log files
+*.log
+
+# Generated files
+generated/
+
+# Coverage / test / reports
+coverage/
+*.ec
+*.exec
+jacoco.exec
+test-output/
+
+# Environment & config
+.env
+*.env
+
+# Backup files
+*~
+*.swp
+*.swo
+*.bak
+
+# Ignore your jar/war/ear packages
+*.jar
+*.war
+*.ear
