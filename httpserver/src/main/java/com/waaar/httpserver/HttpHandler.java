@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.Socket;
 import java.net.URLDecoder;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HttpHandler implements Runnable {
     private final Socket client;
@@ -133,17 +135,41 @@ public class HttpHandler implements Runnable {
         if (contentType.contains("application/json")) {
             // 如果请求是JSON，返回JSON格式的回显
             String jsonResponse = "{\"echo\":\"JSON数据回显\",\"received_body\":\"" +
-                    request.getBody().replace("\"", "\\\"") + "\",\"content_type\":\"" + contentType + "\"}";
-            return new HttpResponse(200, "application/json; charset=UTF-8", jsonResponse);
+                    request.getBody()+ "\",\"content_type\":\"" + contentType + "\"}";
+            return new HttpResponse(200, "text/plain; charset=UTF-8", jsonResponse);
         } else if (contentType.contains("application/x-www-form-urlencoded")) {
             // 如果是表单数据，返回HTML格式的回显
-            String htmlResponse = "<html><body><h2>表单数据回显</h2><pre>" + request.getBody() + "</pre></body></html>";
-            return new HttpResponse(200, "text/html; charset=UTF-8", htmlResponse);
+            String htmlResponse = request.getBody();
+            return new HttpResponse(200, "text/plain; charset=UTF-8", htmlResponse);
+        } else if (contentType.contains("multipart/form-data")) {
+            String htmlResponse = parseMultiFormData(request.getBody());
+
+            return new HttpResponse(200,"text/plain; charset=UTF-8", htmlResponse);
         } else {
             // 默认返回纯文本
             String textResponse = "请求回显:\nContent-Type: " + contentType + "\n请求体: " + request.getBody();
             return new HttpResponse(200, "text/plain; charset=UTF-8", textResponse);
         }
+    }
+
+    private String parseMultiFormData(String body) {
+        StringBuilder result = new StringBuilder();
+
+        // 直接使用正则表达式匹配整个模式
+        Pattern pattern = Pattern.compile("name=\"([^\"]+)\"\\s*\\n\\s*\\n([^-]+?)(?=\\n*-{6})", Pattern.DOTALL);
+        Matcher matcher = pattern.matcher(body);
+
+        while (matcher.find()) {
+            String key = matcher.group(1).trim();
+            String value = matcher.group(2).trim();
+
+            if (result.length() > 0) {
+                result.append("\n");
+            }
+            result.append(key).append("=").append(value);
+        }
+
+        return result.toString();
     }
 
     /**
@@ -312,7 +338,7 @@ public class HttpHandler implements Runnable {
             return "纯文本内容: " + rawBody;
         } else if (contentType.contains("multipart/form-data")) {
             return "文件上传内容 (长度: " + rawBody.length() + " 字符):\n" +
-                    (rawBody.length() > 200 ? rawBody.substring(0, 200) + "..." : rawBody);
+                    rawBody;
         } else {
             return "原始数据: " + rawBody;
         }
