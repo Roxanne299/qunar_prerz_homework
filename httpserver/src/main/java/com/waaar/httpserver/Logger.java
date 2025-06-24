@@ -3,11 +3,22 @@ package com.waaar.httpserver;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 public class Logger {
-    public static void logRequest(Socket client, String path, String ua) {
-        String ip = client.getInetAddress().getHostAddress();
-        String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        System.out.printf("[%s] IP: %s Path: %s UA: %s%n", time, ip, path, ua);
+    public static void logRequest(String clientIP, HttpRequest request, long startTime) {
+//        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(startTime));
+
+
+        // 输出请求头信息
+        System.out.println("  请求头:");
+        for (Map.Entry<String, String> header : request.getHeaders().entrySet()) {
+            System.out.println("    " + header.getKey() + ": " + header.getValue());
+        }
+
+        // 输出请求体信息
+        if (!request.getBody().isEmpty()) {
+            System.out.println("  请求体: " + request.getBody());
+        }
     }
 }

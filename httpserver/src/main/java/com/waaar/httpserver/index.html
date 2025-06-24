@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>多格式接口测试页面</title>
+    <style>
+        body { font-family: "Microsoft Yahei", Arial, sans-serif; background: #23272e; color: #eee; padding: 2rem; }
+        .container { max-width: 700px; margin: 0 auto; background: #2d323b; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 16px #1115; }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        textarea, input[type="text"], select { width: 100%; box-sizing: border-box; margin-top: 0.5rem; padding: 0.5rem; border-radius: 4px; border: none; }
+        button { margin-top: 1rem; padding: 0.7rem 2rem; background: #38a1db; color: #fff; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
+        pre { background: #1c1f26; padding: 1rem; border-radius: 5px; overflow-x: auto; }
+        .form-row { display: flex; gap: 10px; align-items: center; margin-top: 0.5rem;}
+        .form-row input[type="text"], .form-row input[type="file"] { flex: 1; margin: 0; }
+        .form-row select, .form-row button { margin: 0; }
+        .hide { display: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Java Socket 服务端接口多格式测试</h2>
+    <label>服务端地址</label>
+    <input id="serverUrl" type="text" value="http://localhost:8080/api/echo">
+
+    <label>请求方式</label>
+    <select id="method" onchange="onMethodChange()">
+        <option value="POST">POST</option>
+        <option value="GET">GET</option>
+    </select>
+
+    <label>请求内容类型</label>
+    <select id="contentType" onchange="onContentTypeChange()">
+        <option value="application/json">application/json</option>
+        <option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+        <option value="multipart/form-data">multipart/form-data（文件/表单）</option>
+        <option value="text/plain">text/plain（纯文本）</option>
+    </select>
+
+    <!-- JSON 数据输入 -->
+    <div id="jsonArea">
+        <label>请求体（JSON）</label>
+        <textarea id="jsonInput" rows="4">{ "name": "张三", "age": 25, "city": "北京" }</textarea>
+    </div>
+
+    <!-- x-www-form-urlencoded 数据输入 -->
+    <div id="formUrlArea" class="hide">
+        <label>表单数据（键值对，可添加多项）</label>
+        <div id="formRows"></div>
+        <button type="button" onclick="addFormRow()">+ 添加表单项</button>
+    </div>
+
+    <!-- multipart/form-data -->
+    <div id="formDataArea" class="hide">
+        <label>表单字段（可文本/可文件）</label>
+        <div id="formDataRows"></div>
+        <button type="button" onclick="addFormDataRow()">+ 添加字段</button>
+    </div>
+
+    <!-- text/plain 数据输入 -->
+    <div id="plainArea" class="hide">
+        <label>请求体（纯文本）</label>
+        <textarea id="plainInput" rows="4">这是一个纯文本请求内容</textarea>
+    </div>
+
+    <button onclick="sendRequest()">发送请求</button>
+
+    <h3>响应结果：</h3>
+    <pre id="result"></pre>
+</div>
+
+<script>
+    // 动态切换输入区域
+    function onContentTypeChange() {
+        let type = document.getElementById('contentType').value;
+        document.getElementById('jsonArea').classList.toggle('hide', type !== 'application/json');
+        document.getElementById('formUrlArea').classList.toggle('hide', type !== 'application/x-www-form-urlencoded');
+        document.getElementById('formDataArea').classList.toggle('hide', type !== 'multipart/form-data');
+        document.getElementById('plainArea').classList.toggle('hide', type !== 'text/plain');
+    }
+    function onMethodChange() {
+        let method = document.getElementById('method').value;
+        let ctype = document.getElementById('contentType');
+        if(method === 'GET') {
+            ctype.value = 'application/x-www-form-urlencoded';
+            ctype.setAttribute('disabled', true);
+            onContentTypeChange();
+        } else {
+            ctype.removeAttribute('disabled');
+        }
+    }
+    // x-www-form-urlencoded
+    function addFormRow() {
+        let rows = document.getElementById('formRows');
+        let div = document.createElement('div');
+        div.className = 'form-row';
+        div.innerHTML = '<input placeholder="字段名"><input placeholder="字段值"><button type="button" onclick="this.parentNode.remove()">删除</button>';
+        rows.appendChild(div);
+    }
+    // multipart/form-data
+    function addFormDataRow() {
+        let rows = document.getElementById('formDataRows');
+        let div = document.createElement('div');
+        div.className = 'form-row';
+        div.innerHTML = `<input placeholder="字段名">
+        <input placeholder="字段值" type="text">
+        <button type="button" onclick="switchType(this)">切换为文件</button>
+        <button type="button" onclick="this.parentNode.remove()">删除</button>`;
+        rows.appendChild(div);
+    }
+    // 切换输入类型
+    function switchType(btn) {
+        let row = btn.parentNode;
+        let input = row.children[1];
+        if(input.type === 'text') {
+            let newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.style.flex = "1";
+            row.replaceChild(newInput, input);
+            btn.textContent = '切换为文本';
+        } else {
+            let newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.placeholder = '字段值';
+            newInput.style.flex = "1";
+            row.replaceChild(newInput, input);
+            btn.textContent = '切换为文件';
+        }
+    }
+    // 初始添加1行
+    window.onload = function() {
+        addFormRow();
+        addFormDataRow();
+    };
+    function getFormUrlEncodedData() {
+        let kvs = document.getElementById('formRows').children;
+        let params = [];
+        for(let div of kvs) {
+            let inputs = div.getElementsByTagName('input');
+            if(inputs[0].value) params.push(encodeURIComponent(inputs[0].value) + '=' + encodeURIComponent(inputs[1].value));
+        }
+        return params.join('&');
+    }
+    function getFormData() {
+        let kvs = document.getElementById('formDataRows').children;
+        let formData = new FormData();
+        for(let div of kvs) {
+            let inputs = div.getElementsByTagName('input');
+            if(inputs[0].value && inputs[1].type === 'file' && inputs[1].files.length > 0) {
+                formData.append(inputs[0].value, inputs[1].files[0]);
+            } else if(inputs[0].value && inputs[1].type === 'text') {
+                formData.append(inputs[0].value, inputs[1].value);
+            }
+        }
+        return formData;
+    }
+    function sendRequest() {
+        const url = document.getElementById('serverUrl').value.trim();
+        const method = document.getElementById('method').value;
+        const ctype = document.getElementById('contentType').value;
+        const result = document.getElementById('result');
+        result.textContent = '请求中...';
+        let realUrl = url;
+        let options = { method, headers: {} };
+        if(method === 'GET') {
+            const query = getFormUrlEncodedData();
+            if(query) realUrl += (url.includes('?') ? '&' : '?') + query;
+        } else if(ctype === 'application/json') {
+            options.headers['Content-Type'] = 'application/json';
+            options.body = document.getElementById('jsonInput').value;
+        } else if(ctype === 'application/x-www-form-urlencoded') {
+            options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            options.body = getFormUrlEncodedData();
+        } else if(ctype === 'multipart/form-data') {
+            options.body = getFormData(); // fetch会自动处理Content-Type
+        } else if(ctype === 'text/plain') {
+            options.headers['Content-Type'] = 'text/plain';
+            options.body = document.getElementById('plainInput').value;
+        }
+        fetch(realUrl, options)
+            .then(async res => {
+                let text = await res.text();
+                result.textContent = `HTTP状态码: ${res.status}\n\n响应体:\n${text}`;
+            })
+            .catch(err => {
+                result.textContent = '请求出错: ' + err;
+            });
+    }
+</script>
+</body>
+</html>
