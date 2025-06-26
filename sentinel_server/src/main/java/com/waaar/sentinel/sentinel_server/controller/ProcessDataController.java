@@ -28,7 +28,7 @@ public class ProcessDataController {
 
         // 模拟随机出现异常
         int randomInt = random.nextInt(10);
-        if(true) {
+        if(randomInt > 3) {
             throw new ConsumerException("模拟随机异常");
         }
         return new HttpResponse(200,"process");

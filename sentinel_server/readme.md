@@ -22,10 +22,22 @@ sentinel_server
                 └── interceptor       # 请求日志拦截器
 ```
 
-## Sentinel 流控说明
-
-
+## jemeter 主要设置
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626105250.png)
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626105354.png)
+## Sentinel 流控设置
+流控设置：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626105514.png)
+熔断设置：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626105625.png)
 ## 运行示例
-
-
-
+qps：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626105922.png)
+熔断：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626110011.png)
+限流：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626110038.png)
+正常：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626110214.png)
+随机异常：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626110232.png)
