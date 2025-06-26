@@ -41,3 +41,8 @@ qps：
 ![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626110214.png)
 随机异常：
 ![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626110232.png)
+后台日志：
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626111551.png)
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626111309.png)
+![](https://cdn.jsdelivr.net/gh/Roxanne299/PictureBed//blog/20250626111502.png)
+
