@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业1，实现了基本的需求。">
-      <change afterPath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/controller/HttpResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/controller/ProcessDataController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/exception/ConsumerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/interceptor/RequestLogInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业2，添加了说明文档。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentinel_server/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/sentinel_server/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/controller/ProcessDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sentinel_server/src/main/java/com/waaar/sentinel/sentinel_server/controller/ProcessDataController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +173,8 @@
       <workItem from="1750734360132" duration="14370000" />
       <workItem from="1750780881805" duration="520000" />
       <workItem from="1750822299264" duration="4896000" />
-      <workItem from="1750856773049" duration="6023000" />
+      <workItem from="1750856773049" duration="8488000" />
+      <workItem from="1750904690786" duration="1991000" />
     </task>
     <task id="LOCAL-00001" summary="modify: 添加了作业的描述">
       <option name="closed" value="true" />
@@ -212,7 +208,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750770008626</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="modify: 完成作业2，该版本的sentinel配置需要手动配置，并没有持久化。">
+      <option name="closed" value="true" />
+      <created>1750865837840</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750865837840</updated>
+    </task>
+    <task id="LOCAL-00006" summary="modify: 完成作业2，添加了说明文档。">
+      <option name="closed" value="true" />
+      <created>1750867427928</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750867427928</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +279,9 @@
     <MESSAGE value="modify: 初始化作业一，简易服务端，实现日志404功能。" />
     <MESSAGE value="modify: 完善作业1，实现了基本的需求，但是细节还需要修改。" />
     <MESSAGE value="modify: 完成作业1，实现了基本的需求。" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业1，实现了基本的需求。" />
+    <MESSAGE value="modify: 完成作业2，该版本的sentinel配置需要手动配置，并没有持久化。" />
+    <MESSAGE value="modify: 完成作业2，添加了说明文档。" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业2，添加了说明文档。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
