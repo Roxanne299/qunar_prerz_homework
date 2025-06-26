@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="http-server" />
         <module name="sentinel_server" />
+        <module name="oom_project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
