@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/SimpleHttpServer/pom.xml" />
         <option value="$PROJECT_DIR$/httpserver/pom.xml" />
         <option value="$PROJECT_DIR$/sentinel_server/pom.xml" />
+        <option value="$PROJECT_DIR$/oom_project/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

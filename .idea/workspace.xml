@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 修改作业1，添加了说明文档。">
+    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 修改作业2，修改了说明文档。">
+      <change afterPath="$PROJECT_DIR$/oom_project/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oom_project/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sentinel_server/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/sentinel_server/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="homework1" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -89,6 +92,8 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
+    "Application.com.waaar.oom.Main.executor": "Run",
+    "Application.oom.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -97,7 +102,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.SentinelServerApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "oom__test",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework",
@@ -106,20 +111,30 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "web.server",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Spring Boot.SentinelServerApplication">
+  <component name="RunManager" selected="Application.oom">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waaar.httpserver.Main" />
       <module name="http-server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.waaar.httpserver.*" />
-          <option name="ENABLED" value="true" />
+          <option name="ENABLED" value="false" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="oom" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.waaar.oom.Main" />
+      <module name="oom_project" />
+      <option name="VM_PARAMETERS" value="-Xmx256m" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,10 +152,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.oom" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Spring Boot.SentinelServerApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SentinelServerApplication" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Spring Boot.SentinelServerApplication" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -231,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750907287998</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="modify: 修改作业2，修改了说明文档。">
+      <option name="closed" value="true" />
+      <created>1750907827152</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1750907827152</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +317,8 @@
     <MESSAGE value="modify: 完成作业2，该版本的sentinel配置需要手动配置，并没有持久化。" />
     <MESSAGE value="modify: 完成作业2，添加了说明文档。" />
     <MESSAGE value="modify: 修改作业1，添加了说明文档。" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify: 修改作业1，添加了说明文档。" />
+    <MESSAGE value="modify: 修改作业2，修改了说明文档。" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: 修改作业2，修改了说明文档。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
