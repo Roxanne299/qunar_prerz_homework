@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="http-server" />
-        <module name="sentinel_server" />
+        <module name="thread_pool_scheduled" />
         <module name="oom_project" />
+        <module name="sentinel_server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/httpserver/pom.xml" />
         <option value="$PROJECT_DIR$/sentinel_server/pom.xml" />
         <option value="$PROJECT_DIR$/oom_project/pom.xml" />
+        <option value="$PROJECT_DIR$/thread_pool_scheduled/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

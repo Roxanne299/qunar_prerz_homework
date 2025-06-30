@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 修改作业2，修改了说明文档。">
-      <change afterPath="$PROJECT_DIR$/oom_project/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oom_project/readme.md" afterDir="false" />
+    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业3。">
+      <change afterPath="$PROJECT_DIR$/thread_pool_scheduled/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thread_pool_scheduled/src/main/java/com/waaar/thread/ThreadPoolSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -92,6 +92,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.Main.executor": "Run",
+    "Application.ThreadPoolSimulator.executor": "Run",
     "Application.com.waaar.oom.Main.executor": "Run",
     "Application.oom.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
@@ -102,7 +103,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.SentinelServerApplication.executor": "Run",
-    "git-widget-placeholder": "oom__test",
+    "git-widget-placeholder": "thread__pool__scheduled",
     "jdk.selected.JAVA_MODULE": "1.8",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework",
@@ -115,7 +116,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.oom">
+  <component name="RunManager" selected="Application.ThreadPoolSimulator">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waaar.httpserver.Main" />
       <module name="http-server" />
@@ -123,6 +124,19 @@
         <pattern>
           <option name="PATTERN" value="com.waaar.httpserver.*" />
           <option name="ENABLED" value="false" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadPoolSimulator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.waaar.thread.ThreadPoolSimulator" />
+      <module name="thread_pool_scheduled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.waaar.thread.*" />
+          <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
@@ -154,11 +168,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.oom" />
+      <item itemvalue="Application.ThreadPoolSimulator" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Spring Boot.SentinelServerApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadPoolSimulator" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Spring Boot.SentinelServerApplication" />
         <item itemvalue="Application.Main" />
@@ -194,6 +210,8 @@
       <workItem from="1750822299264" duration="4896000" />
       <workItem from="1750856773049" duration="8488000" />
       <workItem from="1750904690786" duration="1991000" />
+      <workItem from="1750997168645" duration="603000" />
+      <workItem from="1751296433162" duration="3977000" />
     </task>
     <task id="LOCAL-00001" summary="modify: 添加了作业的描述">
       <option name="closed" value="true" />
@@ -259,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750907827152</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="modify: 完成作业3。">
+      <option name="closed" value="true" />
+      <created>1750951266530</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750951266530</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +344,8 @@
     <MESSAGE value="modify: 完成作业2，添加了说明文档。" />
     <MESSAGE value="modify: 修改作业1，添加了说明文档。" />
     <MESSAGE value="modify: 修改作业2，修改了说明文档。" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify: 修改作业2，修改了说明文档。" />
+    <MESSAGE value="modify: 完成作业3。" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业3。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
