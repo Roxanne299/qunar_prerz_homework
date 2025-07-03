@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业3。">
-      <change afterPath="$PROJECT_DIR$/thread_pool_scheduled/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thread_pool_scheduled/src/main/java/com/waaar/thread/ThreadPoolSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业4。">
+      <change afterPath="$PROJECT_DIR$/thread_pool_scheduled/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,34 +85,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Application.ThreadPoolSimulator.executor": "Run",
-    "Application.com.waaar.oom.Main.executor": "Run",
-    "Application.oom.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.SentinelServerApplication.executor": "Run",
-    "git-widget-placeholder": "thread__pool__scheduled",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "web.server",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadPoolSimulator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.waaar.oom.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.oom.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SentinelServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;thread__pool__scheduled&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.ThreadPoolSimulator">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waaar.httpserver.Main" />
@@ -211,7 +208,9 @@
       <workItem from="1750856773049" duration="8488000" />
       <workItem from="1750904690786" duration="1991000" />
       <workItem from="1750997168645" duration="603000" />
-      <workItem from="1751296433162" duration="3977000" />
+      <workItem from="1751296433162" duration="4041000" />
+      <workItem from="1751336836091" duration="6737000" />
+      <workItem from="1751543281392" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="modify: 添加了作业的描述">
       <option name="closed" value="true" />
@@ -285,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750951266530</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="modify: 完成作业4。">
+      <option name="closed" value="true" />
+      <created>1751302101351</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1751302101351</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +352,8 @@
     <MESSAGE value="modify: 修改作业1，添加了说明文档。" />
     <MESSAGE value="modify: 修改作业2，修改了说明文档。" />
     <MESSAGE value="modify: 完成作业3。" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业3。" />
+    <MESSAGE value="modify: 完成作业4。" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业4。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
