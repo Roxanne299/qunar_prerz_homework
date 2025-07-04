@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业4。">
-      <change afterPath="$PROJECT_DIR$/rpc_demo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/PRCConsumerThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCProtocol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServerStart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/service/MathService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/service/impl/MathServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业5。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="rpc_demo" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -98,41 +85,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Application.RPCConsumer.executor": "Run",
-    "Application.RPCProducer.executor": "Run",
-    "Application.RPCProtocol.executor": "Run",
-    "Application.RPCServerStart.executor": "Run",
-    "Application.ThreadPoolSimulator.executor": "Run",
-    "Application.com.waaar.oom.Main.executor": "Run",
-    "Application.oom.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.SentinelServerApplication.executor": "Run",
-    "git-widget-placeholder": "rpc__demo",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RPCConsumer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RPCProducer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RPCProtocol.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RPCServerStart.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadPoolSimulator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.waaar.oom.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.oom.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.SentinelServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.RPCConsumer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waaar.httpserver.Main" />
@@ -260,6 +247,7 @@
       <workItem from="1751296433162" duration="4041000" />
       <workItem from="1751336836091" duration="6737000" />
       <workItem from="1751543281392" duration="2000" />
+      <workItem from="1751639811607" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="modify: 添加了作业的描述">
       <option name="closed" value="true" />
@@ -349,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751543470780</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="modify: 完成作业5。">
+      <option name="closed" value="true" />
+      <created>1751639226367</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1751639226367</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +406,8 @@
     <MESSAGE value="modify: 修改作业2，修改了说明文档。" />
     <MESSAGE value="modify: 完成作业3。" />
     <MESSAGE value="modify: 完成作业4。" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业4。" />
+    <MESSAGE value="modify: 完成作业5。" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: 完成作业5。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -452,7 +449,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServerStart.java</url>
           <line>18</line>
-          <properties class="com.waaar.rpc.rpc.RPCServerStart" method="main">
+          <properties class="com.waaar.rpc.rpc.RPCServerStart">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
