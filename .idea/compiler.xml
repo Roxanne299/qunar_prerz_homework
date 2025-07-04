@@ -9,6 +9,7 @@
         <module name="http-server" />
         <module name="thread_pool_scheduled" />
         <module name="oom_project" />
+        <module name="rpc_demo" />
         <module name="sentinel_server" />
       </profile>
     </annotationProcessing>
