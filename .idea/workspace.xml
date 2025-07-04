@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4a77e55-285f-46f1-9a1a-de335cbc434f" name="Changes" comment="modify: 完成作业4。">
-      <change afterPath="$PROJECT_DIR$/thread_pool_scheduled/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/PRCConsumerThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCProtocol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServerStart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/service/MathService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/service/impl/MathServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +46,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -85,35 +98,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ThreadPoolSimulator.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.waaar.oom.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.oom.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SentinelServerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;thread__pool__scheduled&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.RPCConsumer.executor": "Run",
+    "Application.RPCProducer.executor": "Run",
+    "Application.RPCProtocol.executor": "Run",
+    "Application.RPCServerStart.executor": "Run",
+    "Application.ThreadPoolSimulator.executor": "Run",
+    "Application.com.waaar.oom.Main.executor": "Run",
+    "Application.oom.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SentinelServerApplication.executor": "Run",
+    "git-widget-placeholder": "rpc__demo",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/zhouzhoule/Desktop/workspace/project/qunar/prerz/qunar_prerz_homework",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.ThreadPoolSimulator">
+}]]></component>
+  <component name="RunManager" selected="Application.RPCConsumer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.waaar.httpserver.Main" />
       <module name="http-server" />
@@ -121,6 +141,45 @@
         <pattern>
           <option name="PATTERN" value="com.waaar.httpserver.*" />
           <option name="ENABLED" value="false" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RPCConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.waaar.rpc.rpc.RPCConsumer" />
+      <module name="rpc_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.waaar.rpc.rpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RPCProtocol" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.waaar.rpc.rpc.RPCProtocol" />
+      <module name="rpc_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.waaar.rpc.rpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RPCServerStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.waaar.rpc.rpc.RPCServerStart" />
+      <module name="rpc_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.waaar.rpc.rpc.*" />
+          <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
@@ -150,30 +209,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SentinelServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="sentinel_server" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.waaar.sentinel.sentinel_server.SentinelServerApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.waaar.sentinel.sentinel_server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.oom" />
+      <item itemvalue="Application.RPCConsumer" />
+      <item itemvalue="Application.RPCProtocol" />
+      <item itemvalue="Application.RPCServerStart" />
       <item itemvalue="Application.ThreadPoolSimulator" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Spring Boot.SentinelServerApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RPCConsumer" />
+        <item itemvalue="Application.RPCServerStart" />
+        <item itemvalue="Application.RPCProtocol" />
         <item itemvalue="Application.ThreadPoolSimulator" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Spring Boot.SentinelServerApplication" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -292,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751302101351</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="modify: 完成作业4。">
+      <option name="closed" value="true" />
+      <created>1751543470780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751543470780</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +424,39 @@
           <url>file://$PROJECT_DIR$/httpserver/src/main/java/com/waaar/httpserver/HttpHandler.java</url>
           <line>155</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCProtocol.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServerStart.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCConsumer.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCProtocol.java</url>
+          <line>47</line>
+          <properties class="com.waaar.rpc.rpc.RPCProtocol">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/rpc_demo/src/main/java/com/waaar/rpc/rpc/RPCServerStart.java</url>
+          <line>18</line>
+          <properties class="com.waaar.rpc.rpc.RPCServerStart" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
