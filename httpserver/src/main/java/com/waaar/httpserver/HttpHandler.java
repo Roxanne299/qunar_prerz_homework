@@ -19,12 +19,10 @@ public class HttpHandler implements Runnable {
         String clientAddress = this.client.getInetAddress().toString();
         System.out.println("开始处理来自 " + clientAddress + " 的连接");
 
-        try {
+
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(this.client.getInputStream())); PrintWriter out = new PrintWriter(new OutputStreamWriter(this.client.getOutputStream()));) {
             // 设置Socket超时，避免无限阻塞
             this.client.setSoTimeout(30000); // 30秒超时
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(this.client.getInputStream()));
-            PrintWriter out = new PrintWriter(new OutputStreamWriter(this.client.getOutputStream()));
 
             HttpRequest request = parseHttpRequest(in);
 
@@ -59,6 +57,8 @@ public class HttpHandler implements Runnable {
             } catch (IOException closeException) {
                 System.err.println("关闭客户端连接时出错: " + closeException.getMessage());
             }
+        } finally {
+
         }
     }
 
@@ -89,12 +89,18 @@ public class HttpHandler implements Runnable {
      */
     private String getStatusText(int statusCode) {
         switch (statusCode) {
-            case 200: return "OK";
-            case 400: return "Bad Request";
-            case 404: return "Not Found";
-            case 405: return "Method Not Allowed";
-            case 500: return "Internal Server Error";
-            default: return "Unknown";
+            case 200:
+                return "OK";
+            case 400:
+                return "Bad Request";
+            case 404:
+                return "Not Found";
+            case 405:
+                return "Method Not Allowed";
+            case 500:
+                return "Internal Server Error";
+            default:
+                return "Unknown";
         }
     }
 
@@ -125,8 +131,7 @@ public class HttpHandler implements Runnable {
         }
 
         // 404错误
-        return new HttpResponse(404, "text/html; charset=UTF-8",
-                "<html><body><h1>404 Not Found</h1><p>请求的资源不存在</p></body></html>");
+        return new HttpResponse(404, "text/html; charset=UTF-8", "<html><body><h1>404 Not Found</h1><p>请求的资源不存在</p></body></html>");
     }
 
     private HttpResponse handleEchoRequest(HttpRequest request) {
@@ -134,8 +139,7 @@ public class HttpHandler implements Runnable {
 
         if (contentType.contains("application/json")) {
             // 如果请求是JSON，返回JSON格式的回显
-            String jsonResponse = "{\"echo\":\"JSON数据回显\",\"received_body\":\"" +
-                    request.getBody()+ "\",\"content_type\":\"" + contentType + "\"}";
+            String jsonResponse = "{\"echo\":\"JSON数据回显\",\"received_body\":\"" + request.getBody() + "\",\"content_type\":\"" + contentType + "\"}";
             return new HttpResponse(200, "text/plain; charset=UTF-8", jsonResponse);
         } else if (contentType.contains("application/x-www-form-urlencoded")) {
             // 如果是表单数据，返回HTML格式的回显
@@ -144,7 +148,7 @@ public class HttpHandler implements Runnable {
         } else if (contentType.contains("multipart/form-data")) {
             String htmlResponse = parseMultiFormData(request.getBody());
 
-            return new HttpResponse(200,"text/plain; charset=UTF-8", htmlResponse);
+            return new HttpResponse(200, "text/plain; charset=UTF-8", htmlResponse);
         } else {
             // 默认返回纯文本
             String textResponse = "请求回显:\nContent-Type: " + contentType + "\n请求体: " + request.getBody();
@@ -176,39 +180,17 @@ public class HttpHandler implements Runnable {
      * 生成欢迎页面
      */
     private String generateWelcomePage(HttpRequest request) {
-        return "<!DOCTYPE html>" +
-                "<html><head><title>Simple HTTP Server</title></head>" +
-                "<body>" +
-                "<h1>欢迎使用简单HTTP服务器</h1>" +
-                "<p>可用的路径:</p>" +
-                "<ul>" +
-                "<li><a href='/hello'>GET /hello</a> - 返回Hello World</li>" +
-                "</ul>" +
+        return "<!DOCTYPE html>" + "<html><head><title>Simple HTTP Server</title></head>" + "<body>" + "<h1>欢迎使用简单HTTP服务器</h1>" + "<p>可用的路径:</p>" + "<ul>" + "<li><a href='/hello'>GET /hello</a> - 返回Hello World</li>" + "</ul>" +
 
                 "<h3>测试不同Content-Type的POST请求:</h3>" +
 
-                "<h4>1. 普通表单提交 (application/x-www-form-urlencoded)</h4>" +
-                "<form method='post' action='/hello'>" +
-                "姓名: <input type='text' name='name' value='张三'><br><br>" +
-                "年龄: <input type='number' name='age' value='25'><br><br>" +
-                "<input type='submit' value='发送表单数据'>" +
-                "</form>" +
+                "<h4>1. 普通表单提交 (application/x-www-form-urlencoded)</h4>" + "<form method='post' action='/hello'>" + "姓名: <input type='text' name='name' value='张三'><br><br>" + "年龄: <input type='number' name='age' value='25'><br><br>" + "<input type='submit' value='发送表单数据'>" + "</form>" +
 
-                "<h4>2. 回显测试 (支持多种Content-Type)</h4>" +
-                "<form method='post' action='/api/echo'>" +
-                "消息: <input type='text' name='message' value='Hello Server'><br><br>" +
-                "<input type='submit' value='发送到回显接口'>" +
-                "</form>" +
+                "<h4>2. 回显测试 (支持多种Content-Type)</h4>" + "<form method='post' action='/api/echo'>" + "消息: <input type='text' name='message' value='Hello Server'><br><br>" + "<input type='submit' value='发送到回显接口'>" + "</form>" +
 
-                "<h4>3. 测试JSON数据</h4>" +
-                "<pre>curl -X POST http://localhost:8080/api/echo \\\n" +
-                "  -H \"Content-Type: application/json\" \\\n" +
-                "  -d '{\"name\":\"张三\",\"age\":25,\"city\":\"北京\"}'</pre>" +
+                "<h4>3. 测试JSON数据</h4>" + "<pre>curl -X POST http://localhost:8080/api/echo \\\n" + "  -H \"Content-Type: application/json\" \\\n" + "  -d '{\"name\":\"张三\",\"age\":25,\"city\":\"北京\"}'</pre>" +
 
-                "<h4>4. 测试纯文本数据</h4>" +
-                "<pre>curl -X POST http://localhost:8080/api/echo \\\n" +
-                "  -H \"Content-Type: text/plain\" \\\n" +
-                "  -d '这是一段纯文本消息'</pre>" +
+                "<h4>4. 测试纯文本数据</h4>" + "<pre>curl -X POST http://localhost:8080/api/echo \\\n" + "  -H \"Content-Type: text/plain\" \\\n" + "  -d '这是一段纯文本消息'</pre>" +
 
                 "</body></html>";
     }
@@ -337,8 +319,7 @@ public class HttpHandler implements Runnable {
         } else if (contentType.contains("text/plain")) {
             return "纯文本内容: " + rawBody;
         } else if (contentType.contains("multipart/form-data")) {
-            return "文件上传内容 (长度: " + rawBody.length() + " 字符):\n" +
-                    rawBody;
+            return "文件上传内容 (长度: " + rawBody.length() + " 字符):\n" + rawBody;
         } else {
             return "原始数据: " + rawBody;
         }

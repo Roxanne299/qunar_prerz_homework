@@ -1,8 +1,5 @@
 package com.waaar.httpserver;
 
-import java.net.Socket;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 public class Logger {

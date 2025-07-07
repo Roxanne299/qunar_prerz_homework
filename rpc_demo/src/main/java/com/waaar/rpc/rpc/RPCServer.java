@@ -19,35 +19,38 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RPCServer {
 
     // 模拟的注册中心
-    private final Map<String,Object> serviceRegistry = new ConcurrentHashMap<>();
+    private final Map<String, Object> serviceRegistry = new ConcurrentHashMap<>();
 
     /**
      * 注册服务
+     *
      * @param serviceName
      * @param serviceImpl
      */
-    public void registerService(String serviceName,Object serviceImpl){
-        serviceRegistry.put(serviceName,serviceImpl);
+    public void registerService(String serviceName, Object serviceImpl) {
+        serviceRegistry.put(serviceName, serviceImpl);
         System.out.println("服务端注册服务：" + serviceName + "-->" + serviceImpl.getClass().getName());
     }
 
     /**
      * 启动服务
+     *
      * @param port
      * @throws IOException
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    public void start(int port) throws IOException, InvocationTargetException, IllegalAccessException {
-
-            Selector selector = Selector.open();
-            ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+    public void start(int port)  {
+        try (
+                Selector selector = Selector.open();
+                ServerSocketChannel serverSocketChannel = ServerSocketChannel.open()
+        ) {
             serverSocketChannel.configureBlocking(false);
-            System.out.println("服务端已经启动，端口"+ port +".......");
+            System.out.println("服务端已经启动，端口" + port + ".......");
             serverSocketChannel.socket().bind(new InetSocketAddress(port));
 
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
-            registerService("MathService",new MathServiceImpl());
+            registerService("MathService", new MathServiceImpl());
             // 服务端主循环 - 持续监听和处理客户端请求
             while (true) {
                 selector.select();
@@ -93,6 +96,9 @@ public class RPCServer {
                 // 清除这些selection
                 selectionKeys.clear();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -102,15 +108,16 @@ public class RPCServer {
 
     /**
      * 处理消费者发送的请求
+     *
      * @param request
      * @return
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    public  String handleRequest(String request) throws InvocationTargetException, IllegalAccessException {
+    public String handleRequest(String request) throws InvocationTargetException, IllegalAccessException {
         RPCRequest rpcRequest = RPCProtocol.decodeRequest(request);
         Object serviceImpl = serviceRegistry.get(rpcRequest.getServiceName());
-        if(serviceImpl == null){
+        if (serviceImpl == null) {
             return String.valueOf(rpcRequest.getRequestId()) + "|error=该服务未注册或者不存在";
         }
 
@@ -119,47 +126,48 @@ public class RPCServer {
         Method[] declaredMethods = serviceClass.getDeclaredMethods();
         Method serviceMethod = null;
 
-        for(Method method:declaredMethods){
+        for (Method method : declaredMethods) {
             String methodName = method.getName();
-            if(methodName.equals(rpcRequest.getMethodName())){
+            if (methodName.equals(rpcRequest.getMethodName())) {
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                if(rpcRequest.getParameters() == null && parameterTypes.length == 0 || parameterTypes.length == rpcRequest.getParameters().length){
+                if (rpcRequest.getParameters() == null && parameterTypes.length == 0 || parameterTypes.length == rpcRequest.getParameters().length) {
                     serviceMethod = method;
                     break;
                 }
 
             }
         }
-        
-        if(serviceMethod == null){
+
+        if (serviceMethod == null) {
             return String.valueOf(rpcRequest.getRequestId()) + "|error=该方法不存在";
         }
 
         Object result = null;
-        try{
+        try {
             result = serviceMethod.invoke(serviceImpl, convertParameters(rpcRequest.getParameters(), serviceMethod.getParameterTypes()));
-        }catch (Exception e){
+        } catch (Exception e) {
             return String.valueOf(rpcRequest.getRequestId()) + "|error=" + e.getMessage();
         }
 
 
-        return RPCProtocol.encodeResponse(rpcRequest.getRequestId(),result,null);
+        return RPCProtocol.encodeResponse(rpcRequest.getRequestId(), result, null);
 
 
     }
 
     /**
      * 转换参数类型
+     *
      * @param parameters
      * @param parameterTypes
      * @return
      */
-    private Object[] convertParameters(Object[] parameters,Class<?>[] parameterTypes){
-        if(parameters.length == 0){
+    private Object[] convertParameters(Object[] parameters, Class<?>[] parameterTypes) {
+        if (parameters.length == 0) {
             return new Object[0];
         }
         Object[] result = new Object[parameters.length];
-        for(int i=0;i<parameters.length;i++){
+        for (int i = 0; i < parameters.length; i++) {
             Class type = parameterTypes[i];
             Object o = convertSingleParameter((String) parameters[i], type);
             result[i] = o;
@@ -170,6 +178,7 @@ public class RPCServer {
 
     /**
      * 单个参数转换 - 支持基本类型
+     *
      * @param paramStr
      * @param targetType
      * @return

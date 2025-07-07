@@ -17,7 +17,7 @@ import java.util.Random;
 public class ProcessDataController {
 
     @GetMapping("/api/data/process")
-    @SentinelResource(value = "process",blockHandler = "qps",fallback = "baseReturn")
+    @SentinelResource(value = "process", blockHandler = "qps", fallback = "baseReturn")
     public HttpResponse process() throws InterruptedException, ConsumerException {
         // 模拟业务逻辑 在100ms - 300ms中随机耗时
         Random random = new Random();
@@ -28,13 +28,13 @@ public class ProcessDataController {
 
         // 模拟随机出现异常
         int randomInt = random.nextInt(10);
-        if(randomInt > 3) {
+        if (randomInt > 3) {
             throw new ConsumerException("模拟随机异常");
         }
-        return new HttpResponse(200,"process");
+        return new HttpResponse(200, "process");
     }
 
-    public HttpResponse qps(BlockException ex){
+    public HttpResponse qps(BlockException ex) {
         // 关键：通过 RequestContextHolder 获取当前请求并打标
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if (attrs != null) {
@@ -49,7 +49,7 @@ public class ProcessDataController {
 
     }
 
-    public HttpResponse baseReturn(Throwable e){
+    public HttpResponse baseReturn(Throwable e) {
         return new HttpResponse(500, e.getMessage());
     }
 

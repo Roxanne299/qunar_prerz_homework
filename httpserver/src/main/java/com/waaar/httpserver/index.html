@@ -4,16 +4,74 @@
     <meta charset="UTF-8">
     <title>多格式接口测试页面</title>
     <style>
-        body { font-family: "Microsoft Yahei", Arial, sans-serif; background: #23272e; color: #eee; padding: 2rem; }
-        .container { max-width: 700px; margin: 0 auto; background: #2d323b; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 16px #1115; }
-        label { display: block; margin-top: 1rem; font-weight: bold; }
-        textarea, input[type="text"], select { width: 100%; box-sizing: border-box; margin-top: 0.5rem; padding: 0.5rem; border-radius: 4px; border: none; }
-        button { margin-top: 1rem; padding: 0.7rem 2rem; background: #38a1db; color: #fff; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; }
-        pre { background: #1c1f26; padding: 1rem; border-radius: 5px; overflow-x: auto; }
-        .form-row { display: flex; gap: 10px; align-items: center; margin-top: 0.5rem;}
-        .form-row input[type="text"], .form-row input[type="file"] { flex: 1; margin: 0; }
-        .form-row select, .form-row button { margin: 0; }
-        .hide { display: none; }
+        body {
+            font-family: "Microsoft Yahei", Arial, sans-serif;
+            background: #23272e;
+            color: #eee;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #2d323b;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px #1115;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        textarea, input[type="text"], select {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: none;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.7rem 2rem;
+            background: #38a1db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #1c1f26;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .form-row input[type="text"], .form-row input[type="file"] {
+            flex: 1;
+            margin: 0;
+        }
+
+        .form-row select, .form-row button {
+            margin: 0;
+        }
+
+        .hide {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -77,10 +135,11 @@
         document.getElementById('formDataArea').classList.toggle('hide', type !== 'multipart/form-data');
         document.getElementById('plainArea').classList.toggle('hide', type !== 'text/plain');
     }
+
     function onMethodChange() {
         let method = document.getElementById('method').value;
         let ctype = document.getElementById('contentType');
-        if(method === 'GET') {
+        if (method === 'GET') {
             ctype.value = 'application/x-www-form-urlencoded';
             ctype.setAttribute('disabled', true);
             onContentTypeChange();
@@ -88,6 +147,7 @@
             ctype.removeAttribute('disabled');
         }
     }
+
     // x-www-form-urlencoded
     function addFormRow() {
         let rows = document.getElementById('formRows');
@@ -96,6 +156,7 @@
         div.innerHTML = '<input placeholder="字段名"><input placeholder="字段值"><button type="button" onclick="this.parentNode.remove()">删除</button>';
         rows.appendChild(div);
     }
+
     // multipart/form-data
     function addFormDataRow() {
         let rows = document.getElementById('formDataRows');
@@ -107,11 +168,12 @@
         <button type="button" onclick="this.parentNode.remove()">删除</button>`;
         rows.appendChild(div);
     }
+
     // 切换输入类型
     function switchType(btn) {
         let row = btn.parentNode;
         let input = row.children[1];
-        if(input.type === 'text') {
+        if (input.type === 'text') {
             let newInput = document.createElement('input');
             newInput.type = 'file';
             newInput.style.flex = "1";
@@ -126,33 +188,37 @@
             btn.textContent = '切换为文件';
         }
     }
+
     // 初始添加1行
-    window.onload = function() {
+    window.onload = function () {
         addFormRow();
         addFormDataRow();
     };
+
     function getFormUrlEncodedData() {
         let kvs = document.getElementById('formRows').children;
         let params = [];
-        for(let div of kvs) {
+        for (let div of kvs) {
             let inputs = div.getElementsByTagName('input');
-            if(inputs[0].value) params.push(encodeURIComponent(inputs[0].value) + '=' + encodeURIComponent(inputs[1].value));
+            if (inputs[0].value) params.push(encodeURIComponent(inputs[0].value) + '=' + encodeURIComponent(inputs[1].value));
         }
         return params.join('&');
     }
+
     function getFormData() {
         let kvs = document.getElementById('formDataRows').children;
         let formData = new FormData();
-        for(let div of kvs) {
+        for (let div of kvs) {
             let inputs = div.getElementsByTagName('input');
-            if(inputs[0].value && inputs[1].type === 'file' && inputs[1].files.length > 0) {
+            if (inputs[0].value && inputs[1].type === 'file' && inputs[1].files.length > 0) {
                 formData.append(inputs[0].value, inputs[1].files[0]);
-            } else if(inputs[0].value && inputs[1].type === 'text') {
+            } else if (inputs[0].value && inputs[1].type === 'text') {
                 formData.append(inputs[0].value, inputs[1].value);
             }
         }
         return formData;
     }
+
     function sendRequest() {
         const url = document.getElementById('serverUrl').value.trim();
         const method = document.getElementById('method').value;
@@ -160,19 +226,19 @@
         const result = document.getElementById('result');
         result.textContent = '请求中...';
         let realUrl = url;
-        let options = { method, headers: {} };
-        if(method === 'GET') {
+        let options = {method, headers: {}};
+        if (method === 'GET') {
             const query = getFormUrlEncodedData();
-            if(query) realUrl += (url.includes('?') ? '&' : '?') + query;
-        } else if(ctype === 'application/json') {
+            if (query) realUrl += (url.includes('?') ? '&' : '?') + query;
+        } else if (ctype === 'application/json') {
             options.headers['Content-Type'] = 'application/json';
             options.body = document.getElementById('jsonInput').value;
-        } else if(ctype === 'application/x-www-form-urlencoded') {
+        } else if (ctype === 'application/x-www-form-urlencoded') {
             options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
             options.body = getFormUrlEncodedData();
-        } else if(ctype === 'multipart/form-data') {
+        } else if (ctype === 'multipart/form-data') {
             options.body = getFormData(); // fetch会自动处理Content-Type
-        } else if(ctype === 'text/plain') {
+        } else if (ctype === 'text/plain') {
             options.headers['Content-Type'] = 'text/plain';
             options.body = document.getElementById('plainInput').value;
         }
